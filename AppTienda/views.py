@@ -8,16 +8,16 @@ from django.template import loader, context, Template
 
 
 def inicio(request):
-    return HttpResponse('Pagina de inicio')
+    return render (request, 'AppTienda/inicio.html')
 
 def producto(request):
-    return HttpResponse('Pagina de productos')
+    return render (request, 'AppTienda/producto.html')
 
 def cliente(request):
-    return HttpResponse('Pagina de clientes')
+    return render (request, 'AppTienda/cliente.html')
 
 def vendedor(request):
-    return HttpResponse('Pagina de vendedores')
+    return render (request, 'AppTienda/vendedor.html')
 
 def entrega(request):
-    return HttpResponse('Pagina de entregas')
+    return render (request, 'AppTienda/entrega.html')
