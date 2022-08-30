@@ -1,10 +1,13 @@
-import http
-from http.client import HttpResponse
-from django.shortcuts import render
-import datetime
-from .models import *
-from django.template import loader, context, Template
-# Create your views here.
+from django.urls import path
+from AppTienda.views import inicio, producto, cliente, vendedor, entrega
+
+urlpatterns = [
+    path('inicio/', inicio),
+    path('producto/', producto),
+    path('cliente/', cliente),
+    path('vendedor/', vendedor),
+    path('entrega/', entrega),
+]
 
 
 def inicio(request):
