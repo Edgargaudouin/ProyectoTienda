@@ -1,5 +1,5 @@
-import http
-from http.client import HttpResponse
+
+from django.http import HttpResponse
 from django.shortcuts import render
 import datetime
 from .models import *

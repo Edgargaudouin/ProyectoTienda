@@ -1,8 +1,8 @@
 from django.urls import path
-from AppTienda.views import inicio, producto, cliente, vendedor, entrega
+from AppTienda.views import *
 
 urlpatterns = [
-    path('inicio/', inicio),
+    path('', inicio),
     path('producto/', producto),
     path('cliente/', cliente),
     path('vendedor/', vendedor),
