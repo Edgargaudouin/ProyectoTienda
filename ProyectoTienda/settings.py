@@ -56,7 +56,7 @@ ROOT_URLCONF = 'ProyectoTienda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Edgar/Desktop/DJANGO/CoderHouse/Tienda/Plantillas'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
