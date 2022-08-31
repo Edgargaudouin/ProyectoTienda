@@ -3,10 +3,10 @@ from AppTienda.views import *
 
 urlpatterns = [
     path('', inicio),
-    path('producto/', producto),
-    path('cliente/', cliente),
-    path('vendedor/', vendedor),
-    path('entrega/', entrega),
+    path('producto/', producto, name= 'producto'),
+    path('cliente/', cliente, name= 'cliente'),
+    path('vendedor/', vendedor, name= 'vendedor'),
+    path('entrega/', entrega, name= 'entrega'),
 ]
 
 
