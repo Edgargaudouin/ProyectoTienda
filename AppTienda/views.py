@@ -8,7 +8,7 @@ from django.template import loader, context, Template
 
 
 def inicio(request):
-    return render (request, 'AppTienda/inicio.html')
+    return render (request, 'AppTienda/inicio.html') #Tengo que crear un template inicio
 
 def producto(request):
     return render (request, 'AppTienda/producto.html')
