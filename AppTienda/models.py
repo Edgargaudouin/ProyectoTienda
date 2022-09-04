@@ -9,8 +9,11 @@ class Producto(models.Model):
     costo = models.FloatField()
     precio = models.FloatField()
     rubro = models.CharField(max_length=20)
-    descripcion = models.TextField(max_length=200)
+    descripcion = models.CharField(max_length=200)
     estado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.codigo) + " " + self.nombre
 
 class Cliente(models.Model):
 
@@ -20,6 +23,9 @@ class Cliente(models.Model):
     email = models.EmailField()
     direccion = models.TextField(max_length=200)
     estado = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.nombre + " " + self.apellido
 
 class Vendedor(models.Model):
 
@@ -31,8 +37,13 @@ class Vendedor(models.Model):
     direccion = models.TextField(max_length=200)
     estado = models.BooleanField(default=True)
 
+    def __str__(self):
+        return str(self.codigo) + " " + self.nombre + " " + self.apellido
+
 class Entrega(models.Model):
     
     fecha_orden = models.DateTimeField()
     fecha_entrega = models.DateField()
     entregado = models.BooleanField(default=False)
+
+    

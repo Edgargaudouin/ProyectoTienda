@@ -1,0 +1,19 @@
+{% extends "AppTienda/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+<h1 class="mb-5"> REGISTRO DE CLIENTES </h1>
+{% endblock %}
+
+
+{% block content %}
+<form action="" method="POST">{% csrf_token %}
+    <table>
+        {{ formulario.as_table }} <!-- Acá debemos usar la clave del diccionario del contex del GET -->
+        
+    </table>
+
+    <input type="submit" , value="Enviar">
+</form>
+{% endblock %}
