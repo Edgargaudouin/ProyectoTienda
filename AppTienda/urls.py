@@ -8,6 +8,7 @@ urlpatterns = [
     path('vendedor/', vendedor, name= 'vendedor'),
     path('entrega/', entrega, name= 'entrega'),
     path('clienteFormulario/', clienteForm, name='clienteFormulario' ),
+    path('productoFormulario/', productoForm, name='productoFormulario'),
 ]
 
 

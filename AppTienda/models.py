@@ -25,7 +25,7 @@ class Cliente(models.Model):
     estado = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.nombre + " " + self.apellido
+        return self.nombre + " " + self.apellido + " " + str(self.documento)
 
 class Vendedor(models.Model):
 

@@ -6,7 +6,7 @@ import datetime
 from .models import *
 from django.template import loader, context, Template
 #Formularios
-from AppTienda.forms import clienteFormulario
+from AppTienda.forms import clienteFormulario, productoFormulario
 
 def inicio(request):
     return render (request, 'AppTienda/inicio.html') #Tengo que crear un template inicio
@@ -31,7 +31,7 @@ def clienteForm(request):
         miFormulario = clienteFormulario(request.POST)
         print(miFormulario)
         if miFormulario.is_valid():
-            data = miFormulario.cleaned_data
+            data = miFormulario.cleaned_data # -> Me genera un diccionario puedo nombre = data["nombre"]
             print(data)
             nombre = data.get("nombre")
             apellido = data.get("apellido")
@@ -47,4 +47,28 @@ def clienteForm(request):
     else:
         miFormulario=clienteFormulario()
         return render(request, 'AppTienda/clienteFormulario.html', {"formulario" : miFormulario})
+
+def productoForm(request):
+
+    if request.method =="POST":
+        miFormulario = productoFormulario(request.POST)
+        print(miFormulario)
+        if miFormulario.is_valid():
+            data = miFormulario.cleaned_data # -> Me genera un diccionario puedo nombre = data["nombre"]
+            print(data)
+            nombre = data["nombre"]
+            codigo = data["codigo"]
+            costo = data["costo"]
+            precio = data["precio"]
+            rubro = data["rubro"]
+            descripcion = data ["descripcion"]
+            estado = data["estado"]
+            producto = Producto(nombre=nombre, codigo = codigo, costo = costo, precio = precio, rubro = rubro, descripcion = descripcion, estado = estado)
+            producto.save()
+            return render(request, 'AppTienda/inicio.html', {"mensaje": "Producto creado"}) #Este mensaje debe crearse en el template con jinja {}
+        else:
+            return render(request, 'AppTienda/inicio.html', {"mensaje": "Error"})
     
+    else:
+        miFormulario=productoFormulario()
+        return render(request, 'AppTienda/productoFormulario.html', {"formulario" : miFormulario})
