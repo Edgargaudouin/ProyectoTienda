@@ -34,7 +34,7 @@ class Vendedor(models.Model):
     documento = models.IntegerField()
     codigo = models.IntegerField()
     email = models.EmailField()
-    direccion = models.TextField(max_length=200)
+    direccion = models.CharField(max_length=200)
     estado = models.BooleanField(default=True)
 
     def __str__(self):

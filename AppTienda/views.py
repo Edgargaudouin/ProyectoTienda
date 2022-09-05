@@ -6,7 +6,7 @@ import datetime
 from .models import *
 from django.template import loader, context, Template
 #Formularios
-from AppTienda.forms import clienteFormulario, productoFormulario
+from AppTienda.forms import clienteFormulario, productoFormulario, vendedorFormulario
 
 def inicio(request):
     return render (request, 'AppTienda/inicio.html') #Tengo que crear un template inicio
@@ -72,3 +72,28 @@ def productoForm(request):
     else:
         miFormulario=productoFormulario()
         return render(request, 'AppTienda/productoFormulario.html', {"formulario" : miFormulario})
+
+def vendedorForm(request):
+
+    if request.method =="POST":
+        miFormulario = vendedorFormulario(request.POST)
+        print(miFormulario)
+        if miFormulario.is_valid():
+            data = miFormulario.cleaned_data # -> Me genera un diccionario puedo nombre = data["nombre"]
+            print(data)
+            nombre = data["nombre"]
+            apellido = data["apellido"]
+            documento = data["documento"]
+            codigo = data["codigo"]
+            email = data["email"]
+            direccion = data ["direccion"]
+            estado = data["estado"]
+            vendedor= Vendedor(nombre=nombre, apellido = apellido, documento = documento, codigo = codigo, email = email, direccion = direccion, estado = estado)
+            vendedor.save()
+            return render(request, 'AppTienda/inicio.html', {"mensaje": "Vendedor creado"}) #Este mensaje debe crearse en el template con jinja {}
+        else:
+            return render(request, 'AppTienda/inicio.html', {"mensaje": "Error"})
+    
+    else:
+        miFormulario=vendedorFormulario()
+        return render(request, 'AppTienda/vendedorFormulario.html', {"formulario" : miFormulario})
