@@ -97,3 +97,8 @@ def vendedorForm(request):
     else:
         miFormulario=vendedorFormulario()
         return render(request, 'AppTienda/vendedorFormulario.html', {"formulario" : miFormulario})
+
+def listarClientes(request):
+    clientes=Cliente.objects.all()
+    data = {"clientes" : clientes}
+    return render(request, 'Apptienda/listarClientes.html', data)

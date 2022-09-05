@@ -8,7 +8,7 @@
 
 
 {% block content %}
-<h3> ___________________________________________________________________________________________________________________</h3>
+<hr>
 <form action="" method="POST">{% csrf_token %}
     <table>
         {{ formulario.as_table }} <!-- Acá debemos usar la clave del diccionario del contex del GET -->

@@ -1,0 +1,19 @@
+{% extends "AppTienda/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+<h1 class ="mb-5"> Lista clientes </h1>
+{% endblock %}
+
+
+{% block content %}
+<h2> Los clientes son: </h2>
+<hr>
+{% for c in clientes %}
+    
+    {{ c.nombre }} {{ c.apellido }}
+    <br>
+{% endfor %}
+
+{% endblock %}

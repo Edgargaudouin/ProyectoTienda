@@ -8,9 +8,14 @@
 
 
 {% block content %}
-
+<hr>
 <h2> ¿Quieres crear un cliente? </h2>
+<hr>
 <a class="btn btn-outline-dark mt-auto" href="{% url 'clienteFormulario' %}">Registro</a>
+<hr>
+<h2> ¿Quieres ver a nuestros clientes? </h2>
+<hr>
+<a class="btn btn-outline-dark mt-auto" href="{% url 'listarClientes' %}">Registrados</a>
 
 {% endblock %}
 

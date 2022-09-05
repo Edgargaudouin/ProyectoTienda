@@ -10,6 +10,7 @@ urlpatterns = [
     path('clienteFormulario/', clienteForm, name='clienteFormulario' ),
     path('productoFormulario/', productoForm, name='productoFormulario'),
     path('vendedorFormulario/', vendedorForm, name='vendedorFormulario' ),
+    path('listar-clientes/', listarClientes, name='listarClientes'),
 ]
 
 
