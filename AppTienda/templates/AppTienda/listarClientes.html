@@ -3,17 +3,29 @@
 {% load static %}
 
 {% block title %}
-<h1 class ="mb-5"> Lista clientes </h1>
+<h1 class="mb-5"> Lista clientes </h1>
 {% endblock %}
 
 
 {% block content %}
-<h2> Los clientes son: </h2>
-<hr>
-{% for c in clientes %}
-    
-    {{ c.nombre }} {{ c.apellido }}
-    <br>
-{% endfor %}
+<table>
+    <tr>
+        <th>Nombre </th>
+        <th>Apellido </th>
+       
+    </tr>
+    {% if clientes %}
+    {% for c in clientes %}
+    <tr>
 
-{% endblock %}
+    
+        <td>{{ c.nombre }}</td> 
+        <td>{{ c.apellido }}</td>
+   
+    </tr>
+    {% endfor %}
+</table>
+    {% else %}
+    <h3> ¡No hay clientes!</h3>
+    {% endif %}
+    {% endblock %}

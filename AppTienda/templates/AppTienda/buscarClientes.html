@@ -1,0 +1,16 @@
+{% extends "AppTienda/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+<h1 class="mb-5"> BUSQUEDA DE CLIENTES </h1>
+{% endblock %}
+
+
+{% block content %}
+<h3>Ingrese el nombre del cliente: </h3>
+<form action="/AppTienda/buscar/" method="GET">{% csrf_token %}
+    <input type="text" name="nombre" id="nombre">
+    <input type="submit" value="Buscar">
+</form>
+{% endblock %}

@@ -1,5 +1,6 @@
 
 import email
+from mailbox import NoSuchMailboxError
 from django.http import HttpResponse
 from django.shortcuts import render
 import datetime
@@ -102,3 +103,16 @@ def listarClientes(request):
     clientes=Cliente.objects.all()
     data = {"clientes" : clientes}
     return render(request, 'Apptienda/listarClientes.html', data)
+
+def buscarClientes(request):
+    return render(request, 'AppTienda/buscarClientes.html')
+
+def buscar(request):
+    if request.GET["nombre"]:
+        nombre = request.GET['nombre']
+        clientes = Cliente.objects.filter(nombre__icontains=nombre)
+        dicc = {"clientes":clientes , "nombre":nombre}
+        return render(request, 'AppTienda/resultadosBusqueda.html', dicc)
+    else:
+        respuesta = "No enviaste datos"
+    return HttpResponse(respuesta)

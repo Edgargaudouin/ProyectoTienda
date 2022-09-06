@@ -1,0 +1,25 @@
+{% extends "AppTienda/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+<h1 class="mb-5"> Resultado busqueda: </h1>
+{% endblock %}
+
+
+{% block content %}
+<p>Estamos buscando al cliente : {{ nombre }} </p>
+
+{% if clientes %}
+    <ul>
+    {% for c in clientes %}
+        <li>{{ c.nombre }}</li>
+        <li>{{ c.apellido }}</li>
+    {% endfor %}
+    </ul>
+
+    {% else %}
+    <h3> No encontramos ningun cliente llamado {{ nombre }}</h3>
+{& endif &}
+
+{% endblock %}
